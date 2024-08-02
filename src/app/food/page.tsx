@@ -76,7 +76,7 @@ const Menu = () => {
         <p className="text-gray-700"></p>
         Taste the Difference: Crafted with Passion, Served with Style.
         <br/>
-        "Elevate Your Palate: Where Tradition Meets Innovation.
+        &quot;Elevate Your Palate: Where Tradition Meets Innovation.
         <p/>
         <div className="w-fit mx-auto">
         <Dash/>

@@ -26,7 +26,7 @@ const ContactUs = () => {
               Contact us using the information below or visit our location on the map.
             </p>
             <ul className="space-y-2">
-              <li>Address: 123 Main Street, City, State ZIP</li>
+              <li>Address: Assotech Business Cresterra, Plot No. 22, Sector-135, Expressway, Noida-201305, India</li>
               <li>Phone: +123 456 7890</li>
               <li>Email: info@example.com</li>
             </ul>

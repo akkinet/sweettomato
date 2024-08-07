@@ -93,13 +93,6 @@ const Menu = () => {
   </ul>
   <div className="grid lg:grid-cols-[35%,1fr] gap-10 pt-10">
     <div className="w-fit mx-auto">
-      <Image
-      className="w-[100] max-w-[400px] h-auto"
-      src="/1.png"
-      width={500}
-      height={500}
-      alt="dish"
-      />
     </div>
 
     <div className="grid w-fit max-auto sm:grid-cols-2 gap-4">

@@ -5,7 +5,43 @@ import MenuCard from '@/components/MenuCard';
 
 const menuData = [
   {
-    img:"/8.png",
+    img:"/1.png",
+    title: "Delicious Nuggets",
+    desc: "2x tuna sahimi, 1x noodles",
+    price:"$29.50",
+  },
+  {
+    img:"/2.png",
+    title: "Delicious Nuggets",
+    desc: "2x tuna sahimi, 1x noodles",
+    price:"$29.50",
+  },
+  {
+    img:"/3.png",
+    title: "Delicious Nuggets",
+    desc: "2x tuna sahimi, 1x noodles",
+    price:"$29.50",
+  },
+  {
+    img:"/4.png",
+    title: "Delicious Nuggets",
+    desc: "2x tuna sahimi, 1x noodles",
+    price:"$29.50",
+  },
+  {
+    img:"/5.png",
+    title: "Delicious Nuggets",
+    desc: "2x tuna sahimi, 1x noodles",
+    price:"$29.50",
+  },
+  {
+    img:"/6.png",
+    title: "Delicious Nuggets",
+    desc: "2x tuna sahimi, 1x noodles",
+    price:"$29.50",
+  },
+  {
+    img:"/7.png",
     title: "Delicious Nuggets",
     desc: "2x tuna sahimi, 1x noodles",
     price:"$29.50",
@@ -17,49 +53,13 @@ const menuData = [
     price:"$29.50",
   },
   {
-    img:"/8.png",
+    img:"/9.png",
     title: "Delicious Nuggets",
     desc: "2x tuna sahimi, 1x noodles",
     price:"$29.50",
   },
   {
-    img:"/8.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price:"$29.50",
-  },
-  {
-    img:"/8.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price:"$29.50",
-  },
-  {
-    img:"/8.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price:"$29.50",
-  },
-  {
-    img:"/8.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price:"$29.50",
-  },
-  {
-    img:"/8.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price:"$29.50",
-  },
-  {
-    img:"/8.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price:"$29.50",
-  },
-  {
-    img:"/8.png",
+    img:"/10.png",
     title: "Delicious Nuggets",
     desc: "2x tuna sahimi, 1x noodles",
     price:"$29.50",

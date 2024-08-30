@@ -27,8 +27,8 @@ const ContactUs = () => {
             </p>
             <ul className="space-y-2">
               <li>Address: Assotech Business Cresterra, Plot No. 22, Sector-135, Expressway, Noida-201305, India</li>
-              <li>Phone: +123 456 7890</li>
-              <li>Email: info@example.com</li>
+              <li>Phone: 9999929832</li>
+              <li>Email:info@sweettomato.in</li>
             </ul>
           </div>
 

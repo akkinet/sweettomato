@@ -40,6 +40,7 @@ const ContactUs = () => {
                 zoom={10}
               >
                 <Marker position={center} />
+                {/* google maps added to the bottom of the pagegi */}
               </GoogleMap>
             </LoadScript>
           </div>

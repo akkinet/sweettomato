@@ -1,130 +1,164 @@
-import React from 'react';
-import Link from 'next/link';
-import Dash from './Dash';
-import MenuCard from './MenuCard';
-
-const menuData = [
-  {
-    img: "/1.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price: "$29.50",
-  },
-  {
-    img: "/2.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price: "$29.50",
-  },
-  {
-    img: "/3.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price: "$29.50",
-  },
-  {
-    img: "/4.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price: "$29.50",
-  },
-  {
-    img: "/5.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price: "$29.50",
-  },
-  {
-    img: "/6.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price: "$29.50",
-  },
-  {
-    img: "/7.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price: "$29.50",
-  },
-  {
-    img: "/8.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price: "$29.50",
-  },
-  {
-    img: "/9.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price: "$29.50",
-  },
-  {
-    img: "/10.png",
-    title: "Delicious Nuggets",
-    desc: "2x tuna sahimi, 1x noodles",
-    price: "$29.50",
-  },
-];
+"use client";
+import React, { useState, useEffect } from "react";
+import Dash from "./Dash";
+import Breakfast from "../app/Breakfast/page";
+import Lunch from "../app/Lunch/page";
+import Salads from "../app/Salads/page";
+import Deserts from "../app/Deserts/page";
+import Drinks from "../app/Drinks/page";
 
 const Menu = () => {
+  const [selectedMenu, setSelectedMenu] = useState("See All");
+  const [showJugglingEffect, setShowJugglingEffect] = useState(false);
+  const [shuffling, setShuffling] = useState(false);
+
+  // Trigger staggered effect and shuffling
+  useEffect(() => {
+    if (selectedMenu !== "See All") {
+      setShowJugglingEffect(true);
+      setShuffling(true);
+
+      // Remove the effect after the animation is done
+      const timer = setTimeout(() => {
+        setShowJugglingEffect(false);
+        setShuffling(false); // End shuffling after 0.5 seconds
+      }, 1000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [selectedMenu]);
+
+  const renderAllMenus = () => (
+    <div className={`juggling-stagger ${showJugglingEffect ? "juggling-animation" : ""}`}>
+      <Breakfast />
+      <Lunch />
+      <Salads />
+      <Deserts />
+      <Drinks />
+    </div>
+  );
+
+  const renderMenu = () => {
+    switch (selectedMenu) {
+      case "Breakfast":
+        return (
+          <div className={`juggling-stagger ${showJugglingEffect ? "juggling-animation" : ""}`}>
+            <Breakfast />
+          </div>
+        );
+      case "Lunch":
+        return (
+          <div className={`juggling-stagger ${showJugglingEffect ? "juggling-animation" : ""}`}>
+            <Lunch />
+          </div>
+        );
+      case "Salads":
+        return (
+          <div className={`juggling-stagger ${showJugglingEffect ? "juggling-animation" : ""}`}>
+            <Salads />
+          </div>
+        );
+      case "Deserts":
+        return (
+          <div className={`juggling-stagger ${showJugglingEffect ? "juggling-animation" : ""}`}>
+            <Deserts />
+          </div>
+        );
+      case "Drinks":
+        return (
+          <div className={`juggling-stagger ${showJugglingEffect ? "juggling-animation" : ""}`}>
+            <Drinks />
+          </div>
+        );
+      case "See All":
+      default:
+        return renderAllMenus();
+    }
+  };
+
   return (
-    <section className="container pt-40" id="dish">
+    <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-40" id="dish">
       <div className="space-y-4 w-fit mx-auto text-center">
-        <h2 className="text-4xl md:text-6xl font-bold">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold">
           Our <span className="text-accent">Menu</span>
         </h2>
-        <p className="text-gray-700">
+        <p className="text-sm sm:text-base md:text-lg text-gray-700">
           Taste the Difference: Crafted with Passion, Served with Style.
           <br />
-          &quot;Elevate Your Palate: Where Tradition Meets Innovation.
+          &quot;Elevate Your Palate: Where Tradition Meets Innovation.&quot;
         </p>
         <div className="w-fit mx-auto">
           <Dash />
         </div>
       </div>
-      <ul className="mt-10 hidden sm:flex gap-6 md:gap-10 lg:gap-20 w-fit mx-auto">
+
+      {/* Menu navigation */}
+      <ul className="mt-10 flex flex-wrap gap-2 sm:gap-3 md:gap-4 lg:gap-5 justify-center w-full mx-auto">
         <li>
-          <Link href="/Breakfast" className="bg-accent text-white p-2 rounded-lg">
+          <button
+            onClick={() => setSelectedMenu("See All")}
+            className={`bg-accent text-white p-1.5 rounded-md w-full sm:w-24 md:w-28 ${
+              selectedMenu === "See All" ? "opacity-75" : ""
+            }`}
+          >
+            See All
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => setSelectedMenu("Breakfast")}
+            className={`bg-accent text-white p-1.5 rounded-md w-full sm:w-24 md:w-28 ${
+              selectedMenu === "Breakfast" ? "opacity-75" : ""
+            }`}
+          >
             Breakfast
-          </Link>
+          </button>
         </li>
         <li>
-          <Link href="/Lunch" className="bg-accent text-white p-2 rounded-lg">
+          <button
+            onClick={() => setSelectedMenu("Lunch")}
+            className={`bg-accent text-white p-1.5 rounded-md w-full sm:w-24 md:w-28 ${
+              selectedMenu === "Lunch" ? "opacity-75" : ""
+            }`}
+          >
             Lunch
-          </Link>
+          </button>
         </li>
         <li>
-          <Link href="/Salads" className="bg-accent text-white p-2 rounded-lg">
+          <button
+            onClick={() => setSelectedMenu("Salads")}
+            className={`bg-accent text-white p-1.5 rounded-md w-full sm:w-24 md:w-28 ${
+              selectedMenu === "Salads" ? "opacity-75" : ""
+            }`}
+          >
             Salads
-          </Link>
+          </button>
         </li>
         <li>
-          <Link href="/Deserts" className="bg-accent text-white p-2 rounded-lg">
+          <button
+            onClick={() => setSelectedMenu("Deserts")}
+            className={`bg-accent text-white p-1.5 rounded-md w-full sm:w-24 md:w-28 ${
+              selectedMenu === "Deserts" ? "opacity-75" : ""
+            }`}
+          >
             Deserts
-          </Link>
+          </button>
         </li>
         <li>
-          <Link href="/Drinks" className="bg-accent text-white p-2 rounded-lg">
+          <button
+            onClick={() => setSelectedMenu("Drinks")}
+            className={`bg-accent text-white p-1.5 rounded-md w-full sm:w-24 md:w-28 ${
+              selectedMenu === "Drinks" ? "opacity-75" : ""
+            }`}
+          >
             Drinks
-          </Link>
+          </button>
         </li>
       </ul>
-      <div className="grid lg:grid-cols-[35%,1fr] gap-10 pt-10">
-        <div className="w-fit mx-auto">
-          {/* Optional: You can add an image or other content here */}
-        </div>
 
-        <div className="grid w-fit max-auto sm:grid-cols-2 gap-4">
-          {menuData.map((item, index) => (
-            <MenuCard
-              key={index}
-              img={item.img}
-              title={item.title}
-              desc={item.desc}
-              price={item.price}
-            />
-          ))}
-        </div>
+      {/* Dynamic content rendering */}
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr] gap-10 pt-10 w-full">
+        <div className="w-full mx-auto">{renderMenu()}</div>
       </div>
     </section>
   );

@@ -3,47 +3,61 @@
 @tailwind utilities;
 
 .juggling-animation {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.juggling-stagger img {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: appear 0.6s ease forwards;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .juggling-stagger img {
+}
+
+/* Add some delay for staggered effect */
+.juggling-stagger img:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.juggling-stagger img:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.juggling-stagger img:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.juggling-stagger img:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Shuffle Animation */
+.shuffle-animation {
+  transform: translate(20px, -10px) rotate(5deg);
+  transition: transform 0.5s ease;
+}
+
+.arranged-position {
+  transform: translate(0, 0) rotate(0deg);
+}
+/* Define the shuffle animation */
+@keyframes slideInFromRight {
+  0% {
     opacity: 0;
-    transform: translateY(50px);
-    animation: appear 0.6s ease forwards;
+    transform: translateX(50px);
   }
-  
-  @keyframes appear {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  /* Add some delay for staggered effect */
-  .juggling-stagger img:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-  
-  .juggling-stagger img:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  
-  .juggling-stagger img:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-  
-  .juggling-stagger img:nth-child(4) {
-    animation-delay: 0.4s;
-  }
-  
-  /* Shuffle Animation */
-  .shuffle-animation {
-    transform: translate(20px, -10px) rotate(5deg);
-    transition: transform 0.5s ease;
-  }
-  
-  .arranged-position {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  
+}
+
+.animate-item {
+  animation: slideInFromRight 0.5s ease-out forwards;
+}
